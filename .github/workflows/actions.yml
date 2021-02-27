@@ -7,7 +7,7 @@ on: #[push, pull_request]
   #pull_request:
   #  types: [ closed, opened, reopened, assigned]
   repository_dispatch:
-    types: [Hello Ranya!]
+    types: [build]
 
 
 jobs:
