@@ -19,6 +19,8 @@ jobs:
           entrypoint: "/usr/local/bin/node"
           args: -v
       - uses: actions/checkout@v1
+      - name: Exec script
+        run: chmod +x ./script.sh
       - name: Run a script
         uses: docker://node:14.16.0-alpine3.12
         with:
