@@ -2,6 +2,26 @@ name: NodeJS API
 on: push
 
 jobs:
+  
+  docker-steps:
+    runs-on: ubuntu-latest
+    container:
+      image: node:15.10.0-buster-slim
+    steps:
+      - name: log node version
+        run: node -v
+      - name: step with docker
+        uses: docker://node:14.16.0-alpine3.12
+        with:
+          entrypoint: "/bin/echo"
+          args: Hello world !
+      - name: log node verion
+        uses: docker://node:14.16.0-alpine3.12
+        with:
+          entrypoint: "/usr/local/bin/node"
+          args: -v
+      
+  
   node-api-docker:
     runs-on: ubuntu-latest
     services:
