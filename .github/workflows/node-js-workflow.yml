@@ -14,13 +14,11 @@ jobs:
           ports:
             - "3001:3000"
     steps:
-      #- name: Post a user
-        #run: "curl -X POST http://0.0.0.0:3001/api/user 
-        #-H 'Content-Type: application/json' 
-        #-d '{\"username\": \"Ranya\",\"address\": \"Tunisia\"}'"
-      - name: Log docker
-        run: |
-          docker ps -a
-          sleep 10s
+      - name: sleep docker
+        run: sleep 10s
+      - name: Post a user
+        run: "curl -X POST http://0.0.0.0:3001/api/user 
+        -H 'Content-Type: application/json' 
+        -d '{\"username\": \"Ranya\",\"address\": \"Tunisia\"}'"
       - name: Get users
         run: "curl http://localhost:3001/api/users"
