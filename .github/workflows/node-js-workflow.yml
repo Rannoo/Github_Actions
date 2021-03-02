@@ -8,8 +8,6 @@ jobs:
     container:
       image: node:15.10.0-buster-slim
     steps:
-      - name: log node version
-        run: node -v
       - name: step with docker
         uses: docker://node:14.16.0-alpine3.12
         with:
