@@ -13,11 +13,12 @@ jobs:
           image: alialaa17/node-api:latest
           ports:
             - "3001:3000"
+    # these staps will run on the VM
     steps:
       - name: sleep docker
         run: sleep 10s
       - name: Post a user
-        run: "curl -X POST http://0.0.0.0:3001/api/user 
+        run: "curl -X POST http://localhost:3001/api/user 
         -H 'Content-Type: application/json' 
         -d '{\"username\": \"Ranya\",\"address\": \"Tunisia\"}'"
       - name: Get users
