@@ -1,0 +1,25 @@
+name: NodeJS API 
+on: push
+
+jobs:
+  node-api-docker:
+    runs-on: ubuntu-latest
+    services:
+        mongo:
+          image: mongo
+          ports:
+            - "27017:27017"
+        app:
+          image: alialaa17/node-ap
+          ports:
+            - 3001:3000
+    steps:
+      - name: Post a user
+        run: "curl -X POST \
+        http://localhost:30001/api/user \
+        -H 'Content-Type: application/json' \
+        -d '{
+       	\"username\": \"Ranya\",
+       	\"address\": \"Tunisia\"}'"
+      - name: Get users
+        run: curl http://localhost:3001/api/users
