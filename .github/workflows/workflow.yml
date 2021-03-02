@@ -1,0 +1,14 @@
+name: Test Encryption
+on: push
+
+jobs:
+  Encryption:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: decrypt the file
+        env:
+          PASSPHRASE: ${{secrets.PASSPHRASE}}
+        run: gpg --bash --yes --decrypt --passphrase="$PASSPHRASE" --output secret.txt test.txt.gpg
+      - name: Print our file
+        run: cat secret.txt
