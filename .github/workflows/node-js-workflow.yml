@@ -19,4 +19,4 @@ jobs:
         #-H 'Content-Type: application/json' 
         #-d '{\"username\": \"Ranya\",\"address\": \"Tunisia\"}'"
       - name: Get users
-        run: curl http://localhost:3001/api/users
+        run: "curl http://localhost:3001/api/users"
