@@ -19,6 +19,8 @@ jobs:
         #-H 'Content-Type: application/json' 
         #-d '{\"username\": \"Ranya\",\"address\": \"Tunisia\"}'"
       - name: Log docker
-        run: docker ps -a
+        run: |
+          docker ps -a
+          sleep 10s
       - name: Get users
         run: "curl http://localhost:3001/api/users"
